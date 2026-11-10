@@ -4,6 +4,15 @@ import { Language, Protein, Compound, DockingResult } from "../types";
 import { Play, RotateCcw, Activity, Award, CheckCircle, HelpCircle, Terminal } from "lucide-react";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from "recharts";
 import { motion, AnimatePresence } from "motion/react";
+import { formatText } from "../utils/textFormatter";
+import {
+  CollaboratorCursor,
+  CanvasCommentBubble,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares,
+  MiniWireframeCard
+} from "./CanvasDecorations";
 
 interface DockingSimulatorProps {
   lang: Language;
@@ -146,19 +155,65 @@ export default function DockingSimulator({ lang }: DockingSimulatorProps) {
     : [];
 
   return (
-    <section id="simulator" className="py-24 md:py-32 border-t border-line bg-paper-soft/40 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="simulator" className="relative py-24 md:py-32 onlines-grid scroll-mt-20 overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", right: "120px", count: "l-shape" },
+          { top: "360px", left: "60px", count: "pair" },
+          { bottom: "60px", right: "60px", count: "single" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-14 left-12 text-[#00B8D9]" rotate={-6} delay={0.2}>
+        ΔG
+      </FloatingSquircleBadge>
+      <FloatingSquircleBadge className="hidden xl:flex absolute bottom-16 right-12 text-[#00C471]" rotate={6} delay={0.4}>
+        Vina
+      </FloatingSquircleBadge>
+      <MiniWireframeCard
+        title="grid_box_3ERT.cfg"
+        rotate={-3.5}
+        className="hidden 2xl:block absolute top-20 right-10"
+        lines={[
+          { label: "Center X/Y/Z", value: "12.4 / -3.1 / 22.8" },
+          { label: "Box Size", value: "40 × 40 × 40 Å", accent: "#00B8D9" },
+          { label: "Spacing", value: "0.375 Å" }
+        ]}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-12">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">
-            {t.simSubtitle}
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl mb-6 gradient-text">
-            {t.simTitle}
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed text-ink-soft text-justify">
-            {t.simIntro}
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div className="max-w-2xl space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                {formatText(t.simSubtitle)}
+              </p>
+              <CollaboratorCursor
+                label="AutoDock Vina v1.2 Engine"
+                color="#00B8D9"
+                delay={0.2}
+              />
+            </div>
+            <FigmaSelectionTitle badge="SECTION 04 • VIRTUAL SCREENING">
+              <h2 className="font-serif text-4xl md:text-5xl gradient-text">
+                {formatText(t.simTitle)}
+              </h2>
+            </FigmaSelectionTitle>
+            <p className="text-sm md:text-base leading-relaxed text-ink-soft text-justify pt-2">
+              {formatText(t.simIntro)}
+            </p>
+          </div>
+
+          <CanvasCommentBubble
+            author="In Silico Engine"
+            time="real-time"
+            text={
+              lang === "id"
+                ? "Pilih target protein & ligan, lalu klik Jalankan Simulasi."
+                : "Select a protein target & ligand, then click Run Simulation."
+            }
+            className="hidden sm:flex shrink-0"
+          />
         </div>
 
         {/* Configuration Panel */}
@@ -173,7 +228,7 @@ export default function DockingSimulator({ lang }: DockingSimulatorProps) {
             {/* Protein Selector */}
             <div className="space-y-2">
               <label className="block text-xs font-mono tracking-wider uppercase text-ink-soft">
-                {t.simSelectProtein}
+                {formatText(t.simSelectProtein)}
               </label>
               <select
                 disabled={isRunning}

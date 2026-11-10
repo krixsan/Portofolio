@@ -2,6 +2,13 @@ import { useState, FormEvent } from "react";
 import { TRANSLATIONS } from "../data";
 import { Language } from "../types";
 import { Mail, MessageCircle, MapPin, Linkedin, Instagram, Github, ArrowUpRight } from "lucide-react";
+import {
+  CollaboratorCursor,
+  CanvasCommentBubble,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares
+} from "./CanvasDecorations";
 
 interface ContactFormProps {
   lang: Language;
@@ -38,10 +45,17 @@ export default function ContactForm({ lang }: ContactFormProps) {
   const socialLinks = [
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/i-komang-bayu-kresna-8b9240412",
+      href: "https://linkedin.com/in/i-komang-bayu-kresna",
       icon: <Linkedin size={18} />,
-      label: "I Komang Bayu Kresna",
+      label: "i-komang-bayu-kresna",
       color: "hover:text-blue-500 hover:border-blue-400"
+    },
+    {
+      name: "GitHub",
+      href: "https://github.com/krixsan",
+      icon: <Github size={18} />,
+      label: "@krixsan",
+      color: "hover:text-ink hover:border-ink-soft"
     },
     {
       name: "Instagram",
@@ -49,32 +63,56 @@ export default function ContactForm({ lang }: ContactFormProps) {
       icon: <Instagram size={18} />,
       label: "@krixsan_",
       color: "hover:text-pink-500 hover:border-pink-400"
-    },
-    {
-      name: "GitHub",
-      href: "https://github.com/Mang Krisna",
-      icon: <Github size={18} />,
-      label: "Mang Krisna",
-      color: "hover:text-ink hover:border-ink-soft"
     }
   ];
 
   return (
-    <section id="kontak" className="py-24 md:py-32 border-t border-line scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="kontak" className="relative py-24 md:py-32 onlines-grid scroll-mt-20 overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", right: "180px", count: "l-shape" },
+          { bottom: "60px", left: "120px", count: "pair" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-14 left-12 text-[#00C471]" rotate={-6} delay={0.2}>
+        WA
+      </FloatingSquircleBadge>
+      <FloatingSquircleBadge className="hidden xl:flex absolute bottom-16 right-14 text-[#FF5722]" rotate={7} delay={0.4}>
+        ✉️
+      </FloatingSquircleBadge>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Info & socials Left */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
-                {t.navContact}
-              </p>
-              <h2 className="font-serif italic text-4xl md:text-6xl leading-[1.1] font-medium gradient-text">
-                {t.contactTitle}
-              </h2>
-              <p className="text-sm md:text-base text-ink-soft leading-relaxed pt-2 text-justify">
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                  {t.navContact}
+                </p>
+                <CollaboratorCursor
+                  label={lang === "id" ? "Siap Kerja & Relokasi" : "Open to Relocation"}
+                  color="#00C471"
+                  delay={0.2}
+                />
+              </div>
+              <FigmaSelectionTitle badge="SECTION 08 • LET'S TALK">
+                <h2 className="font-serif text-4xl md:text-5xl leading-[1.08] font-extrabold gradient-text">
+                  {t.contactTitle}
+                </h2>
+              </FigmaSelectionTitle>
+              <p className="text-sm md:text-base text-ink-soft leading-relaxed pt-3 text-justify">
                 {t.contactSubtitle}
               </p>
+              <CanvasCommentBubble
+                author="Mank Krisna"
+                time="online"
+                text={
+                  lang === "id"
+                    ? "Fast response via WhatsApp (+62 857-3760-5649) & Email."
+                    : "Fast response via WhatsApp (+62 857-3760-5649) & Email."
+                }
+              />
             </div>
 
             {/* Practical Quick Contacts */}

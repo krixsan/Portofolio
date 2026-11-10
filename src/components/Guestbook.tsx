@@ -5,6 +5,12 @@ import { PenTool, MessageSquare, ShieldCheck, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
+import {
+  CollaboratorCursor,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares
+} from "./CanvasDecorations";
 
 interface GuestbookProps {
   lang: Language;
@@ -102,18 +108,39 @@ export default function Guestbook({ lang }: GuestbookProps) {
   };
 
   return (
-    <section id="guestbook" className="py-24 md:py-32 border-t border-line bg-paper-soft/30 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="guestbook" className="relative py-24 md:py-32 border-b border-line onlines-grid scroll-mt-20 overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", left: "180px", count: "pair" },
+          { bottom: "60px", right: "120px", count: "l-shape" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-14 right-14 text-[#007AFF]" rotate={6} delay={0.2}>
+        ✍️
+      </FloatingSquircleBadge>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Header & Submit form left */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
-              <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent">
-                {t.guestSubtitle}
-              </p>
-              <h2 className="font-serif text-4xl md:text-5xl gradient-text">
-                {t.guestTitle}
-              </h2>
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                  {t.guestSubtitle}
+                </p>
+              </div>
+              <FigmaSelectionTitle badge="SECTION 07 • ENDORSEMENTS">
+                <h2 className="font-serif text-4xl md:text-5xl gradient-text">
+                  {t.guestTitle}
+                </h2>
+              </FigmaSelectionTitle>
+              <div className="pt-2">
+                <CollaboratorCursor
+                  label="Colleague & Supervisor Notes"
+                  color="#007AFF"
+                  delay={0.2}
+                />
+              </div>
             </div>
 
             {/* Form card with glass effect */}

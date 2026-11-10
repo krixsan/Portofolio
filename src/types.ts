@@ -45,3 +45,19 @@ export interface ChatMessage {
   role: "user" | "model";
   parts: { text: string }[];
 }
+
+export interface Certificate {
+  id: string;
+  title: { id: string; en: string };
+  issuer: string;
+  credentialId: string;
+  date: { id: string; en: string };
+  category: "instansi" | "qc_qa" | "food_safety";
+  categoryLabel: { id: string; en: string };
+  description: { id: string; en: string };
+  skills: string[];
+  previewImage: string;
+  pdfUrl: string;
+  featured?: boolean;
+  signers?: string;
+}

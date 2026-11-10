@@ -3,6 +3,13 @@ import {
   Users, Award, Music, Trophy, Sparkles
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  CollaboratorCursor,
+  CanvasCommentBubble,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares
+} from "./CanvasDecorations";
 
 interface ExtraCurricularProps {
   lang: "id" | "en";
@@ -12,27 +19,60 @@ export default function ExtraCurricular({ lang }: ExtraCurricularProps) {
   const [activeTab, setActiveTab] = useState<"org" | "hobby">("org");
 
   return (
-    <section id="aktivitas" className="py-24 md:py-32 border-t border-line scroll-mt-20 bg-paper/20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="aktivitas" className="relative py-24 md:py-32 border-b border-line scroll-mt-20 onlines-grid overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", left: "60px", count: "pair" },
+          { bottom: "60px", right: "180px", count: "l-shape" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-16 right-14 text-[#EC4899]" rotate={7} delay={0.2}>
+        🏀
+      </FloatingSquircleBadge>
+      <FloatingSquircleBadge className="hidden xl:flex absolute bottom-14 left-12 text-[#007AFF]" rotate={-6} delay={0.4}>
+        🎵
+      </FloatingSquircleBadge>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         
         {/* Header Section with Navigation Tabs */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-b border-line/60 pb-6">
-          <div className="max-w-xl">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">
-              {lang === "id" ? "KEPEMIMPINAN & AKTIVITAS KREATIF" : "LEADERSHIP & CREATIVE PURSUITS"}
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl leading-tight gradient-text">
-              {lang === "id" ? "Sisi Organisasi & Kreatif" : "Organizational & Creative Side"}
-            </h2>
-            <p className="text-xs md:text-sm text-ink-soft leading-relaxed mt-2 text-justify">
+          <div className="max-w-xl space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                {lang === "id" ? "KEPEMIMPINAN & AKTIVITAS KREATIF" : "LEADERSHIP & CREATIVE PURSUITS"}
+              </p>
+              <CollaboratorCursor
+                label={activeTab === "org" ? "Wakil Ketua II HIMAKI" : "EDM Hipdut Producer"}
+                color="#EC4899"
+                delay={0.2}
+              />
+            </div>
+            <FigmaSelectionTitle badge="SECTION 03 • LEADERSHIP & PASSIONS">
+              <h2 className="font-serif text-4xl md:text-5xl leading-tight gradient-text">
+                {lang === "id" ? "Sisi Organisasi & Kreatif" : "Organizational & Creative Side"}
+              </h2>
+            </FigmaSelectionTitle>
+            <p className="text-xs md:text-sm text-ink-soft leading-relaxed pt-2 text-justify">
               {lang === "id" 
                 ? "Di samping dedikasi riset ilmiah dan ketelitian laboratorium, saya aktif berkontribusi dalam kepengurusan mahasiswa, mengukir prestasi olahraga basket, dan mengeksplorasi musik elektronik EDM."
                 : "Parallel to scientific rigor and lab analytical work, I actively lead student organizations, compete on the basketball court, and experiment with EDM audio engineering."}
             </p>
           </div>
 
-          {/* Elegant Custom Tabs */}
-          <div className="flex items-center gap-1.5 glass-card p-1 rounded-2xl shrink-0">
+          <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
+            <CanvasCommentBubble
+              author="HIMAKI & BEM FMIPA"
+              time="2022–2024"
+              text={
+                lang === "id"
+                  ? "Aktif memimpin organisasi mahasiswa & juara 3 basket PORSENI."
+                  : "Student executive leadership & 3rd place PORSENI basketball."
+              }
+              className="hidden lg:flex"
+            />
+            {/* Elegant Custom Tabs */}
+            <div className="flex items-center gap-1.5 glass-card p-1 rounded-2xl shrink-0">
             <button
               onClick={() => setActiveTab("org")}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all cursor-pointer ${
@@ -53,6 +93,7 @@ export default function ExtraCurricular({ lang }: ExtraCurricularProps) {
             >
               🏀 {lang === "id" ? "Hobi & Kreativitas" : "Hobbies & Passions"}
             </button>
+            </div>
           </div>
         </div>
 
@@ -93,8 +134,8 @@ export default function ExtraCurricular({ lang }: ExtraCurricularProps) {
 
                   <p className="text-xs md:text-sm text-ink-soft leading-relaxed text-justify">
                     {lang === "id"
-                      ? "Mengemban amanat kepemimpinan internal sebagai Wakil Ketua II. Bertanggung jawab atas pengawasan dan koordinasi departemen minat bakat, pengabdian masyarakat, kesejahteraan mahasiswa, serta merawat sinergi dan kolaborasi program kerja pengurus demi memajukan iklim akademik mahasiswa kimia."
-                      : "Entrusted with internal leadership as Vice Chairman II. Supervised and coordinated student interest departments, community outreach, student welfare, while maintaining collaborative chemistry department-level program synergies."}
+                      ? "Memimpin koordinasi eksekutif lintas 15 pengurus inti dan 3 divisi organisasi dalam menyelenggarakan program kerja akademik, seminar ilmiah, serta kegiatan kemahasiswaan bagi 200+ mahasiswa aktif Program Studi Kimia Fakultas MIPA Universitas Udayana."
+                      : "Led executive coordination across 15 core board members and 3 organizational divisions to deliver academic work programs, scientific seminars, and student welfare initiatives for 200+ active Chemistry undergraduate students at Udayana University."}
                   </p>
                 </div>
 

@@ -3,6 +3,13 @@ import { TRANSLATIONS } from "../data";
 import { Language } from "../types";
 import { Calculator, Beaker, HelpCircle, AlertCircle } from "lucide-react";
 import { motion } from "motion/react";
+import {
+  CollaboratorCursor,
+  CanvasCommentBubble,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares
+} from "./CanvasDecorations";
 
 interface LabCalculatorProps {
   lang: Language;
@@ -58,19 +65,54 @@ export default function LabCalculator({ lang }: LabCalculatorProps) {
   };
 
   return (
-    <section id="kalkulator" className="py-24 md:py-32 border-t border-line scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="kalkulator" className="relative py-24 md:py-32 border-b border-line onlines-grid scroll-mt-20 overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", left: "120px", count: "l-shape" },
+          { bottom: "60px", right: "120px", count: "pair" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-16 right-14 text-[#7C3AED]" rotate={6} delay={0.2}>
+        ppm
+      </FloatingSquircleBadge>
+      <FloatingSquircleBadge className="hidden xl:flex absolute bottom-16 left-12 text-[#007AFF]" rotate={-7} delay={0.4}>
+        mol/L
+      </FloatingSquircleBadge>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Header */}
-        <div className="max-w-3xl mb-12">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">
-            {t.calcSubtitle}
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl mb-6 gradient-text">
-            {t.calcTitle}
-          </h2>
-          <p className="text-base md:text-lg leading-relaxed text-ink-soft text-justify">
-            {t.calcIntro}
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div className="max-w-2xl space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                {t.calcSubtitle}
+              </p>
+              <CollaboratorCursor
+                label="QC Volumetric Prep"
+                color="#7C3AED"
+                delay={0.2}
+              />
+            </div>
+            <FigmaSelectionTitle badge="SECTION 05 • WET-LAB TOOLKIT">
+              <h2 className="font-serif text-4xl md:text-5xl gradient-text">
+                {t.calcTitle}
+              </h2>
+            </FigmaSelectionTitle>
+            <p className="text-sm md:text-base leading-relaxed text-ink-soft text-justify pt-2">
+              {t.calcIntro}
+            </p>
+          </div>
+
+          <CanvasCommentBubble
+            author="SOP Preparasi"
+            time="ISO 17025"
+            text={
+              lang === "id"
+                ? "Otomatisasi perhitungan pengenceran C₁V₁ = C₂V₂ & molaritas."
+                : "Automated C₁V₁ = C₂V₂ dilution & analytical molarity."
+            }
+            className="hidden sm:flex shrink-0"
+          />
         </div>
 
         {/* Toolkit Container */}

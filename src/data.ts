@@ -1,4 +1,4 @@
-import { Protein, Compound } from "./types";
+import { Protein, Compound, Certificate } from "./types";
 
 export const PROTEINS: Protein[] = [
   {
@@ -183,72 +183,181 @@ export const COMPOUNDS: Compound[] = [
 
 export const WORK_HISTORY = [
   {
-    id: "asdos",
-    period: "2025 - 2026",
-    role: {
-      id: "Asisten Dosen (Asdos) Kimia Organik 1 & 2",
-      en: "Organic Chemistry 1 & 2 Teaching Assistant"
-    },
-    institution: {
-      id: "Laboratorium Kimia Organik, Universitas Udayana",
-      en: "Organic Chemistry Lab, Udayana University"
-    },
-    description: {
-      id: "Dipercaya menjadi Asisten Dosen untuk praktikum Kimia Organik 2 pada semester 7 dan Kimia Organik 1 pada semester 8. Bertanggung jawab membimbing mahasiswa dalam sintesis senyawa, pemurnian (destilasi, kristalisasi), dan menjaga protokol K3 laboratorium.",
-      en: "Trusted as a Teaching Assistant for Organic Chemistry 2 in semester 7 and Organic Chemistry 1 in semester 8. Responsible for guiding students through compound synthesis, purification (distillation, crystallization), and maintaining laboratory biosafety/safety protocols."
-    },
-    skills: ["Kimia Organik", "Sintesis Senyawa", "Teknik Pemurnian", "Bimbingan Praktikum", "Keselamatan Kerja (K3)"]
-  },
-  {
     id: "bpom",
-    period: "4 Mar 2025 - 20 Jun 2025",
+    period: "4 Mar 2025 - 4 Jul 2025",
     role: {
-      id: "Analis Laboratorium (Magang)",
-      en: "Laboratory Analyst (Intern)"
+      id: "Analis Laboratorium Magang — QC/QA Farmasi, Kosmetik & Pangan",
+      en: "Laboratory Analyst Intern — Pharma, Cosmetic & Food QC/QA"
     },
     institution: {
-      id: "BPOM (Badan Pengawas Obat dan Makanan)",
-      en: "BPOM (National Agency of Drug and Food Control)"
+      id: "Balai Besar POM di Denpasar (Badan POM RI) • Lab Terakreditasi ISO/IEC 17025",
+      en: "BPOM Denpasar (Indonesian FDA) • ISO/IEC 17025 Accredited Lab"
     },
     description: {
-      id: "Bertanggung jawab atas analisis laboratorium untuk pengujian mutu obat, makanan, kosmetik, dan bahan berbahaya. Mengimplementasikan standar GMP (Good Manufacturing Practice) dan ISO 17025 secara ketat.",
-      en: "Responsible for laboratory testing of pharmaceuticals, food, cosmetics, and hazardous substances. Strictly implemented Good Manufacturing Practices (GMP) and ISO 17025 standard procedures."
+      id: "Melakukan pengujian mutu fisikokimia pada **200+ sampel obat, kosmetik, dan produk pangan** menggunakan instrumen HPLC dan Spektrofotometri UV-Vis sesuai standar ketat **GMP dan ISO/IEC 17025**. Mengelola log kalibrasi instrumen, dokumentasi analitis harian, pembuatan kurva kalibrasi, serta preparasi larutan standar volumetrik pada 3 sistem instrumen analitis dengan **nol temuan ketidaksesuaian (zero non-conformance)**. Lulus dengan **Predikat BAIK** (No. HM.03.04.13A.07.25.544) & evaluasi akademik **Nilai A (4.00 / 4.00)**.",
+      en: "Performed physicochemical quality testing on **200+ pharmaceutical, cosmetic, and food samples** using HPLC and UV-Vis Spectrophotometry under strict **GMP and ISO/IEC 17025** standards. Managed instrument calibration logs, daily analytical documentation, calibration curves, and volumetric standard preparation across 3 analytical instrument systems with **zero non-conformance findings**. Awarded **GOOD (BAIK) Predicate** (Cert No. HM.03.04.13A.07.25.544) and **Academic Grade A (4.00 / 4.00)**."
     },
-    skills: ["Uji Mutu Fisiko-Kimia", "HPLC", "Spektrofotometri UV-Vis", "ISO 17025", "GMP Compliance"]
+    skills: ["200+ Sampel Uji", "HPLC & UV-Vis", "ISO/IEC 17025", "GMP Compliance", "Zero Non-Conformance"],
+    certificateUrl: "/certificates/bpom-internship.pdf"
   },
   {
     id: "seafood",
-    period: "3 Feb 2025 - 3 Mar 2025",
+    period: "Feb 2025 - Mar 2025",
     role: {
-      id: "QC & Analis Logam Berat",
-      en: "QC & Heavy Metal Analyst"
+      id: "Analis Quality Control (QC) — Cemaran Logam Berat (AAS) & Mutu Pangan",
+      en: "Quality Control (QC) Analyst — Heavy Metals (AAS) & Food Safety"
     },
     institution: {
-      id: "Bali Seafood Inspection Laboratory",
-      en: "Bali Seafood Inspection Laboratory"
+      id: "Bali Seafood Inspection Laboratory (BASIL) • Fasilitas Bersertifikasi HACCP",
+      en: "Bali Seafood Inspection Laboratory (BASIL) • HACCP Certified Facility"
     },
     description: {
-      id: "Melakukan pengawasan mutu ekspor produk perikanan, pengujian kadar logam berat seperti Timbal (Pb), Merkuri (Hg), dan Kadmium (Cd) menggunakan Spektrofotometri Serapan Atom (AAS). Mengelola kepatuhan HACCP.",
-      en: "Conducted export quality control for fishery products, chemical safety testing of heavy metals (Lead/Pb, Mercury/Hg, Cadmium/Cd) using Atomic Absorption Spectroscopy (AAS). Managed compliance under HACCP protocols."
+      id: "Menguji secara kuantitatif cemaran logam berat (Pb, Hg, Cd) dan parameter histamin pada **50+ batch ekspor** tuna sirip kuning serta bahan pangan untuk hotel, restoran, dan maskapai menggunakan **Atomic Absorption Spectroscopy (AAS)**, memastikan kepatuhan **100% terhadap batas regulasi Uni Eropa dan US FDA**. Melaksanakan destruksi asam sampel pangan, pembuatan kurva kalibrasi standar, dan verifikasi kontrol kualitas mutu berbasis protokol keamanan pangan **HACCP**.",
+      en: "Quantitatively tested heavy metal contaminants (Pb, Hg, Cd) and histamine parameters across **50+ export batches** of yellowfin tuna and food products for hotels, restaurants, and airline catering using **Atomic Absorption Spectroscopy (AAS)**, ensuring **100% compliance with EU and US FDA** regulatory limits. Executed acid digestion, standard calibration curve modeling, and **HACCP** quality control verification."
     },
-    skills: ["Atomic Absorption Spectroscopy (AAS)", "HACCP Certified", "Food Chemistry", "Trace Analysis", "Heavy Metal Testing"]
+    skills: ["AAS (Pb, Hg, Cd)", "Uji Histamin", "50+ Batch Ekspor", "HACCP Protocol", "EU & US FDA Std"]
+  },
+  {
+    id: "asdos",
+    period: "Agu 2025 - Jun 2026",
+    role: {
+      id: "Asisten Dosen — Laboratorium Kimia Organik I & II",
+      en: "Teaching Assistant — Organic Chemistry Laboratory I & II"
+    },
+    institution: {
+      id: "Program Studi Kimia, Fakultas MIPA, Universitas Udayana",
+      en: "Department of Chemistry, Faculty of Mathematics & Natural Sciences, Udayana University"
+    },
+    description: {
+      id: "Membimbing dan mengawasi **100+ mahasiswa sarjana** dalam praktikum sintesis organik, distilasi fraksinasi, rekristalisasi, ekstraksi senyawa bahan alam, serta identifikasi gugus fungsi. Menegakkan kepatuhan protokol K3 laboratorium secara ketat sehingga mencapai **nol insiden kecelakaan kerja (zero safety incident)** selama lebih dari 30 sesi praktikum sepanjang 2 semester, serta mengevaluasi **200+ laporan praktikum** dan memimpin *pre-lab safety briefing*.",
+      en: "Supervised and mentored **100+ undergraduate students** in organic synthesis, fractional distillation, recrystallization, natural product extraction, and functional group identification. Enforced strict laboratory OHS/K3 protocols achieving **zero safety incidents** across 30+ practicum sessions over 2 semesters, while evaluating **200+ lab reports** and leading pre-lab safety briefings."
+    },
+    skills: ["100+ Mahasiswa", "Sintesis & Pemurnian", "Zero Safety Incident", "K3 Laboratorium", "200+ Laporan Lab"]
   },
   {
     id: "computational",
-    period: "2025 - Sekarang",
+    period: "2025 - 2026",
     role: {
-      id: "Peneliti Kimia Komputasi Mandiri",
-      en: "Independent Computational Chemistry Researcher"
+      id: "Peneliti Kimia Komputasi & Pengembang Perangkat Lunak Ilmiah (Vibe Coding)",
+      en: "Computational Chemistry Researcher & Scientific Software Developer (Vibe Coding)"
     },
     institution: {
-      id: "Udayana Chemistry Lab & In Silico Network",
-      en: "Udayana Chemistry Lab & In Silico Network"
+      id: "Universitas Udayana & Open-Source Developer (github.com/krixsan)",
+      en: "Udayana University & Open-Source Developer (github.com/krixsan)"
     },
     description: {
-      id: "Mengembangkan riset penapisan virtual bahan alam potensial Indonesia terhadap reseptor virus dan sel kanker menggunakan teknik *molecular docking*. Menyusun visualisasi interaksi ligan-reseptor 3D tingkat lanjut.",
-      en: "Developed virtual screening projects of Indonesian bioactive natural compounds targeting viral and cancer receptors using molecular docking. Conducted advanced 3D ligand-receptor interaction profiling."
+      id: "Melakukan penapisan virtual (*molecular docking*) **44 senyawa fitokimia LC-HRMS/MS** daun cengkeh terhadap reseptor kanker payudara ER-α (PDB: 3ERT, Nilai Skripsi **A / 4.00**), serta mengembangkan ekosistem perangkat lunak berbasis *Vibe Coding*: aplikasi desktop otomasi *docking* **DockVista PRO (v2.4)** & **CHEMIA (v1.5)**, web full-stack (**KasirKu Smart POS, KostMonitor, SocialFeed**), hingga *native porting* game PS4 ke PC berbasis **C++ & Vulkan 1.3**.",
+      en: "Conducted virtual screening (*molecular docking*) of **44 LC-HRMS/MS phytochemicals** from clove leaves against breast cancer receptor ER-α (PDB: 3ERT, Thesis Grade **A / 4.00**), and engineered AI-assisted (*Vibe Coding*) software: desktop docking automation suite **DockVista PRO (v2.4)** & **CHEMIA (v1.5)**, full-stack web apps (**KasirKu Smart POS, KostMonitor, SocialFeed**), and native PS4-to-PC game ports in **C++ & Vulkan 1.3**."
     },
-    skills: ["AutoDock Vina", "In Silico Molecular Docking", "PyMOL / Discovery Studio", "Binding Free Energy (ΔG)", "Ligand Optimization"]
+    skills: ["AutoDock Vina & PyMOL", "DockVista PRO v2.4", "React 19 & Next.js 15", "C++ & Vulkan 1.3", "ProTox 3.0"]
+  }
+];
+
+export const RELEVANT_COURSEWORK = {
+  id: [
+    "Kimia Analitik Kuantitatif (A)",
+    "Analisis Kimia Bahan Pangan (A)",
+    "Metode Pemisahan (A)",
+    "Manajemen & K3 Laboratorium (A)",
+    "Praktik Kerja Lapangan / BPOM (A)",
+    "Toksikologi Kimia (A)",
+    "Uji Bioaktivitas (A)",
+    "Fitokimia (A)",
+    "Biomolekul & Enzim (A)",
+    "Kimia Forensik (A)",
+    "Metodologi Penelitian Ilmiah (A)"
+  ],
+  en: [
+    "Quantitative Analytical Chemistry (A)",
+    "Food Chemical Analysis (A)",
+    "Separation Methods (A)",
+    "Lab Management & OHS/K3 (A)",
+    "BPOM Field Internship (A)",
+    "Chemical Toxicology (A)",
+    "Bioactivity Assay (A)",
+    "Phytochemistry (A)",
+    "Biomolecules & Enzymes (A)",
+    "Forensic Chemistry (A)",
+    "Scientific Research Methodology (A)"
+  ]
+};
+
+export const VIBE_CODING_PROJECTS = [
+  {
+    id: "ps4-native-pc-port",
+    year: "2026",
+    badge: "NATIVE GAME PORTING • C++ / VULKAN 1.3",
+    title: {
+      id: "Porting Game PlayStation 4 (PS4) ke Native PC — Sengoku Basara 4 Sumeragi & J-Stars Victory VS+",
+      en: "PlayStation 4 (PS4) to Native PC Game Porting — Sengoku Basara 4 Sumeragi & J-Stars Victory VS+"
+    },
+    subtitle: {
+      id: "Clean-Room Reverse Engineering & x86_64 Native Execution Runtime Tanpa Emulator",
+      en: "Clean-Room Reverse Engineering & Emulator-Free x86_64 Native Execution Runtime"
+    },
+    description: {
+      id: "Membangun *runtime* eksekusi *native* x86_64 dan *presentation engine* **Vulkan 1.3** melalui *vibe coding* dan *clean-room reverse engineering* untuk mem-*porting* game konsol PS4 (*Basara-4-Sumeragi-Native-PC* & *J-Stars-Victory-VS-PC*) agar berjalan secara *native* di Windows PC tanpa emulator. Dilengkapi fitur *unlocked framerate* (**120+ FPS**), *supersampling* resolusi tinggi, input **SDL3** *zero-latency*, serta *custom game launcher*.",
+      en: "Engineered a native x86_64 execution runtime and **Vulkan 1.3** presentation engine via vibe coding and clean-room reverse engineering to port PS4 console titles (*Basara-4-Sumeragi-Native-PC* & *J-Stars-Victory-VS-PC*) to run natively on Windows PC without an emulator. Features unlocked framerate (**120+ FPS**), high-resolution supersampling, zero-latency **SDL3** gamepad input, and a custom .NET launcher."
+    },
+    tech: ["C++", "C# (.NET)", "Vulkan 1.3 API", "SDL3", "x86_64 Native Runtime", "CMake / Ninja"],
+    metrics: [
+      { label: "Framerate", value: "120+ FPS Unlocked" },
+      { label: "Graphics API", value: "Vulkan 1.3 Native" },
+      { label: "Architecture", value: "x86_64 No-Emulator" }
+    ],
+    githubUrl: "https://github.com/krixsan",
+    repoNames: ["Basara-4-Sumeragi-Native-PC", "J-Stars-Victory-VS-PC"]
+  },
+  {
+    id: "dockvista-chemia",
+    year: "2026",
+    badge: "SCIENTIFIC DESKTOP APPS • PYTHON & ELECTRON",
+    title: {
+      id: "DockVista PRO (v2.4) & CHEMIA (v1.5) — Perangkat Lunak Desktop Automasi Komputasi Kimia",
+      en: "DockVista PRO (v2.4) & CHEMIA (v1.5) — Computational Chemistry Automation Desktop Suite"
+    },
+    subtitle: {
+      id: "Otomatisasi Alur Molecular Docking Batch & Platform Simulasi Kimia Interaktif",
+      en: "Batch Molecular Docking Pipeline Automation & Interactive Chemistry Simulation Platform"
+    },
+    description: {
+      id: "Mengembangkan aplikasi desktop GUI **DockVista PRO (v2.4)** yang mengotomasikan alur *molecular docking* (preparasi ligan batch, konversi PDBQT, kalkulasi AutoDock Vina, hingga ekspor laporan Excel otomatis yang mempercepat riset **>70%**) serta platform simulasi kimia **CHEMIA (v1.5)** yang mencakup **8 modul pembelajaran interaktif** dan kalkulator preparasi larutan analitis yang teruji dengan **50+ unit test suites**.",
+      en: "Developed the **DockVista PRO (v2.4)** desktop GUI application automating batch molecular docking workflows (batch ligand preparation, PDBQT conversion, AutoDock Vina execution, and automated Excel reporting that accelerates research by **>70%**) alongside **CHEMIA (v1.5)** featuring **8 interactive chemistry modules** and analytical solution calculators backed by **50+ Vitest unit test suites**."
+    },
+    tech: ["Python", "CustomTkinter GUI", "Electron", "React", "TypeScript", "AutoDock Vina", "OpenBabel", "Vitest (50+ Suites)"],
+    metrics: [
+      { label: "Time Saved", value: ">70% Faster Docking" },
+      { label: "CHEMIA Modules", value: "8 Interactive Labs" },
+      { label: "Automated Tests", value: "50+ Unit Test Suites" }
+    ],
+    githubUrl: "https://github.com/krixsan",
+    repoNames: ["DockVista-PRO-v2.4", "CHEMIA-v1.5"]
+  },
+  {
+    id: "fullstack-web-suite",
+    year: "2026",
+    badge: "FULL-STACK WEB APPS • NEXT.JS 15 & REACT 19",
+    title: {
+      id: "Pengembangan Website Full-Stack Modern (Portofolio Ilmiah 3D, KasirKu POS, KostMonitor, SocialFeed)",
+      en: "Modern Full-Stack Web Applications (3D Scientific Portfolio, KasirKu POS, KostMonitor, SocialFeed)"
+    },
+    subtitle: {
+      id: "Aplikasi Web Interaktif untuk Riset Laboratorium, Kasir UMKM 3-in-1, ERP Properti & Komunitas",
+      en: "Interactive Web Apps for Lab Research, 3-in-1 Retail POS, Property ERP & Social PWA"
+    },
+    description: {
+      id: "Merancang dan men-*deploy* berbagai aplikasi web interaktif menggunakan metode *vibe coding*: website portofolio riset dengan visualisasi molekul 3D & kalkulator pengenceran laboratorium QC, sistem kasir UMKM 3-in-1 (**KasirKu Smart POS**) dengan pemindai barcode & kontrol masa kedaluwarsa **FIFO/FEFO**, sistem ERP manajemen properti (**KostMonitor**), serta PWA komunitas sosial (**SocialFeed**).",
+      en: "Designed and deployed full-stack web applications via vibe coding: a scientific research portfolio with 3D molecular visualization & QC dilution calculators, a 3-in-1 SME point-of-sale system (**KasirKu Smart POS**) with barcode scanning and **FIFO/FEFO** expiration control, a property management ERP (**KostMonitor**), and a social community PWA (**SocialFeed**)."
+    },
+    tech: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Laravel 13", "Prisma ORM", "SQLite"],
+    metrics: [
+      { label: "KasirKu POS", value: "3-in-1 + FIFO/FEFO" },
+      { label: "KostMonitor", value: "Property ERP System" },
+      { label: "Live Deployment", value: "Vercel Edge Cloud" }
+    ],
+    githubUrl: "https://github.com/krixsan",
+    liveUrl: "https://portofolio-mank-krisna.vercel.app",
+    repoNames: ["Portofolio-Mank-Krisna", "KasirKu-Smart-POS", "KostMonitor", "SocialFeed"]
   }
 ];
 
@@ -325,10 +434,197 @@ export const GALLERY_ITEMS = [
   }
 ];
 
+export const CERTIFICATES: Certificate[] = [
+  {
+    id: "bpom-internship",
+    title: {
+      id: "Sertifikat Kerja Praktek / Magang — Balai Besar POM di Denpasar",
+      en: "Internship Completion Certificate — BPOM (National Agency of Drug and Food Control)"
+    },
+    issuer: "Badan POM RI — Balai Besar POM di Denpasar",
+    credentialId: "HM.03.04.13A.07.25.544",
+    date: {
+      id: "14 Juli 2025 (Periode: 4 Mar – 4 Jul 2025)",
+      en: "July 14, 2025 (Period: Mar 4 – Jul 4, 2025)"
+    },
+    category: "instansi",
+    categoryLabel: {
+      id: "Magang / Instansi",
+      en: "Government Internship"
+    },
+    description: {
+      id: "Sertifikat resmi penyelesaian program Kerja Praktek/Magang dengan predikat BAIK di Balai Besar Pengawas Obat dan Makanan (BBPOM) di Denpasar. Meliputi pengujian mutu fisiko-kimia sediaan obat, makanan, dan kosmetik menggunakan instrumen HPLC dan Spektrofotometri UV-Vis sesuai standar ISO/IEC 17025.",
+      en: "Official internship completion certificate awarded with a GOOD (BAIK) predicate at the National Agency of Drug and Food Control (BBPOM) in Denpasar. Covered physicochemical quality testing of pharmaceuticals, food, and cosmetics using HPLC and UV-Vis Spectrophotometry under ISO/IEC 17025 standards."
+    },
+    skills: ["ISO/IEC 17025", "HPLC", "UV-Vis Spectrophotometry", "Pharmaceutical & Food QC", "GMP Compliance"],
+    previewImage: "/certificates/previews/bpom-internship.png",
+    pdfUrl: "/certificates/bpom-internship.pdf",
+    featured: true,
+    signers: "Dra. I Gusti Ayu Adhi Aryapatni, Apt (Kepala BBPOM di Denpasar — TTE BSrE/BSSN)"
+  },
+  {
+    id: "qc-food-industry",
+    title: {
+      id: "Quality Control (QC) in Food Industry",
+      en: "Quality Control (QC) in Food Industry"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "2596/AP-0P6/MA/XI-2026",
+    date: {
+      id: "1 November 2026",
+      en: "November 1, 2026"
+    },
+    category: "qc_qa",
+    categoryLabel: {
+      id: "QC & QA Industri",
+      en: "Industrial QC & QA"
+    },
+    description: {
+      id: "Sertifikasi kompetensi pengendalian mutu (Quality Control) pada industri pangan, mencakup inspeksi bahan baku (incoming material), pengawasan proses produksi (in-process control), pengujian produk akhir (finished product), serta penanganan ketidaksesuaian mutu.",
+      en: "Professional training certification in Food Industry Quality Control (QC), covering raw material inspection, in-process monitoring, finished product analytical testing, and non-conformance handling."
+    },
+    skills: ["Quality Control (QC)", "In-Process Inspection", "Food Analysis", "Sampling Plan", "Organoleptic & Physicochemical"],
+    previewImage: "/certificates/previews/qc-food-industry.png",
+    pdfUrl: "/certificates/qc-food-industry.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Dini Puteri Khairani, S.T.P (Trainer)"
+  },
+  {
+    id: "qa-food-industry",
+    title: {
+      id: "Quality Assurance (QA) in Food Industry",
+      en: "Quality Assurance (QA) in Food Industry"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "2236/AP-0P5/MA/X-2026",
+    date: {
+      id: "31 Oktober 2026",
+      en: "October 31, 2026"
+    },
+    category: "qc_qa",
+    categoryLabel: {
+      id: "QC & QA Industri",
+      en: "Industrial QC & QA"
+    },
+    description: {
+      id: "Sertifikasi penjaminan mutu (Quality Assurance) industri pangan yang berfokus pada perancangan sistem manajemen mutu, penyusunan dokumen SOP, kepatuhan regulasi keamanan pangan, audit mutu internal, dan tindakan korektif/preventif (CAPA).",
+      en: "Food Industry Quality Assurance (QA) certification focusing on quality management system design, SOP documentation, regulatory compliance, internal quality auditing, and CAPA (Corrective and Preventive Action)."
+    },
+    skills: ["Quality Assurance (QA)", "SOP Documentation", "Internal Quality Audit", "CAPA", "Regulatory Compliance"],
+    previewImage: "/certificates/previews/qa-food-industry.png",
+    pdfUrl: "/certificates/qa-food-industry.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Rizka Amalia, S.Gz (Trainer)"
+  },
+  {
+    id: "iso-22000",
+    title: {
+      id: "ISO 22000:2018 (Food Safety Management System)",
+      en: "ISO 22000:2018 (Food Safety Management System)"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "5639/AP-0P3/MA/X-2026",
+    date: {
+      id: "1 November 2026",
+      en: "November 1, 2026"
+    },
+    category: "food_safety",
+    categoryLabel: {
+      id: "Food Safety, ISO & GMP",
+      en: "Food Safety, ISO & GMP"
+    },
+    description: {
+      id: "Sertifikasi pemahaman dan penerapan Sistem Manajemen Keamanan Pangan berstandar internasional ISO 22000:2018, mengintegrasikan komunikasi interaktif, manajemen sistem berbasis siklus PDCA, Program Prasyarat (PRP), dan prinsip HACCP.",
+      en: "Certification in implementing the international ISO 22000:2018 Food Safety Management System (FSMS), integrating interactive communication, PDCA system management, Prerequisite Programs (PRPs), and HACCP principles."
+    },
+    skills: ["ISO 22000:2018", "FSMS", "PDCA Cycle", "Prerequisite Programs (PRP)", "Food Safety Audit"],
+    previewImage: "/certificates/previews/iso-22000.png",
+    pdfUrl: "/certificates/iso-22000.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Sanjaya, B.Sc. (Trainer)"
+  },
+  {
+    id: "fssc-22000",
+    title: {
+      id: "FSSC 22000 Version 7.0 (Food Safety System Certification)",
+      en: "FSSC 22000 Version 7.0 (Food Safety System Certification)"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "5639/AP-0P4/MA/X-2026",
+    date: {
+      id: "1 November 2026",
+      en: "November 1, 2026"
+    },
+    category: "food_safety",
+    categoryLabel: {
+      id: "Food Safety, ISO & GMP",
+      en: "Food Safety, ISO & GMP"
+    },
+    description: {
+      id: "Sertifikasi skema keamanan pangan global FSSC 22000 versi 7.0 (diakui GFSI) yang menggabungkan ISO 22000, ISO/TS 22002-1 (PRP spesifik industri), serta persyaratan tambahan seperti Food Defense (TACCP), Food Fraud Mitigation (VACCP), dan Food Safety Culture.",
+      en: "Certification in the GFSI-recognized FSSC 22000 Version 7.0 global food safety scheme, combining ISO 22000, ISO/TS 22002-1 PRPs, and additional requirements including Food Defense (TACCP), Food Fraud Mitigation (VACCP), and Food Safety Culture."
+    },
+    skills: ["FSSC 22000 v7.0", "GFSI Standard", "Food Defense (TACCP)", "Food Fraud (VACCP)", "ISO/TS 22002-1"],
+    previewImage: "/certificates/previews/fssc-22000.png",
+    pdfUrl: "/certificates/fssc-22000.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Sanjaya, B.Sc. (Trainer)"
+  },
+  {
+    id: "haccp",
+    title: {
+      id: "HACCP (Hazard Analysis and Critical Control Point)",
+      en: "HACCP (Hazard Analysis and Critical Control Point)"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "5639/AP-0P2/MA/X-2026",
+    date: {
+      id: "31 Oktober 2026",
+      en: "October 31, 2026"
+    },
+    category: "food_safety",
+    categoryLabel: {
+      id: "Food Safety, ISO & GMP",
+      en: "Food Safety, ISO & GMP"
+    },
+    description: {
+      id: "Sertifikasi kompetensi analisis bahaya dan pengendalian titik kritis (HACCP), mencakup 7 prinsip HACCP, identifikasi bahaya biologis, kimia, dan fisik pada rantai produksi pangan, serta penetapan batas kritis (critical limit) dan tindakan korektif.",
+      en: "Competency certification in Hazard Analysis and Critical Control Points (HACCP), covering the 7 HACCP principles, biological/chemical/physical hazard identification across food production chains, critical limits, and corrective actions."
+    },
+    skills: ["HACCP Plan", "CCP Identification", "Hazard Analysis", "Food Safety", "Risk Assessment"],
+    previewImage: "/certificates/previews/haccp.png",
+    pdfUrl: "/certificates/haccp.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Sanjaya, B.Sc. (Trainer)"
+  },
+  {
+    id: "gmp",
+    title: {
+      id: "GMP (Good Manufacturing Practices)",
+      en: "GMP (Good Manufacturing Practices)"
+    },
+    issuer: "PT Makin Ahli Indonesia",
+    credentialId: "5639/AP-0P1/MA/X-2026",
+    date: {
+      id: "31 Oktober 2026",
+      en: "October 31, 2026"
+    },
+    category: "food_safety",
+    categoryLabel: {
+      id: "Food Safety, ISO & GMP",
+      en: "Food Safety, ISO & GMP"
+    },
+    description: {
+      id: "Sertifikasi Cara Produksi yang Baik (GMP / CPPOB), mencakup desain higienis fasilitas produksi, sanitasi & higiene personel (SSOP), pengendalian kontaminasi silang, pemeliharaan peralatan, serta ketertelusuran (traceability) batch produksi.",
+      en: "Good Manufacturing Practices (GMP) certification covering hygienic facility design, sanitation & personnel hygiene (SSOP), cross-contamination control, equipment maintenance, and production batch traceability."
+    },
+    skills: ["GMP / CPPOB", "Sanitation & Hygiene (SSOP)", "Cross-Contamination Control", "Batch Traceability"],
+    previewImage: "/certificates/previews/gmp.png",
+    pdfUrl: "/certificates/gmp.pdf",
+    signers: "Ariyani Wastika Mukti, S.Si (Head of L&D) & Sanjaya, B.Sc. (Trainer)"
+  }
+];
+
 export const TRANSLATIONS = {
   id: {
     navHome: "Beranda",
     navAbout: "Tentang",
+    navCertificates: "Sertifikasi",
     navActivities: "Aktivitas",
     navSimulator: "Simulator *In Silico*",
     navCalculator: "Alat Lab QC",
@@ -338,27 +634,27 @@ export const TRANSLATIONS = {
     heroGreeting: "Halo! Perkenalkan, saya",
     heroName: "Mank Krisna",
     heroTitle: "I Komang Bayu Kresna, S.Si.",
-    heroSubtitle: "Sarjana Kimia • Peminat Kimia Komputasi (*In Silico*) & Analis Laboratorium (BPOM / QC)",
-    heroBio: "Lulusan Sarjana Kimia Universitas Udayana yang mendedikasikan keahlian dalam mengintegrasikan presisi analisis laboratorium basah (seperti HPLC & AAS) dengan pemodelan komputasi (*molecular docking*) untuk mengeksplorasi potensi senyawa aktif baru.",
+    heroSubtitle: "Analis Quality Control (QC/QA) • Kimiawan Komputasi (*In Silico*) • Pengembang Web & Perangkat Lunak (*Vibe Coding*)",
+    heroBio: "Finalis Nasional ONMIPA-PT Kimia 2025 & Sarjana Kimia Universitas Udayana (IPK 3.77/4.00 — *Cum Laude*). Mengintegrasikan presisi analisis laboratorium QC/QA industri pangan & farmasi (HPLC, AAS, UV-Vis), kimia komputasi *in silico*, serta rekayasa perangkat lunak berbasis AI (*Vibe Coding*) untuk aplikasi web modern, desktop ilmiah, hingga *native porting* game PS4 ke PC.",
     heroBtnSim: "Mulai Simulasi Docking",
     heroBtnContact: "Hubungi Saya",
-    heroBtnCv: "Unduh CV",
+    heroBtnCv: "Lihat & Unduh CV",
     
     skillsInSilico: "Komputasi & *In Silico*",
     skillsLab: "Laboratorium (QC/QA)",
-    skillsOther: "Sertifikasi & Lainnya",
+    skillsOther: "Sertifikasi & Standar Mutu",
 
     aboutTitle: "Dedikasi & Riset Laboratorium",
-    aboutSubtitle: "— Menjembatani Eksperimen Riil dengan Simulasi Komputer",
-    aboutBio1: "Saya adalah lulusan Sarjana Kimia dari Universitas Udayana yang memiliki ketertarikan besar pada bidang kimia analitik, pengawasan mutu (QC), serta eksplorasi senyawa aktif. Selama menempuh pendidikan, saya dipercaya menjadi Asisten Dosen (Asdos) praktikum Kimia Organik II (Semester 7) dan Kimia Organik I (Semester 8) di Universitas Udayana. Selain itu, saya juga berhasil melaju sebagai Finalis ONMIPA tingkat Nasional di bidang Kimia, sebuah ajang prestasi prestis tingkat nasional yang mempertemukan talenta sains terbaik.",
-    aboutBio2: "Ketertarikan profesional saya diperkuat dengan bekal pengalaman magang di BPOM (menggunakan kromatografi HPLC) serta kerja nyata di *Bali Seafood Inspection Laboratory* (menggunakan spektrometri AAS). Melalui pengalaman tersebut, saya terbiasa mengoperasikan instrumen analitis dengan presisi tinggi, memelihara regulasi pengujian yang ketat, serta mendalami Kimia Komputasi lewat teknik *in silico molecular docking* untuk mendukung penemuan senyawa obat baru dari bahan alam Indonesia.",
-    aboutSkillsTitle: "Keahlian Profesional & Teknis",
+    aboutSubtitle: "— Menjembatani Eksperimen Riil, Komputasi & Rekayasa Perangkat Lunak",
+    aboutBio1: "Saya adalah Finalis Nasional ONMIPA-PT Bidang Kimia 2025 dan lulusan Sarjana Kimia (S.Si.) Universitas Udayana dengan predikat Dengan Pujian (*Cum Laude*, IPK 3.77 / 4.00, 146 SKS selesai dalam 8 semester). Selama masa studi, saya meraih Nilai A (4.00) pada seluruh mata kuliah inti analitik & pangan, serta dipercaya menjadi Asisten Dosen Laboratorium Kimia Organik I & II yang membimbing 100+ mahasiswa sarjana dengan capaian nol insiden kecelakaan kerja (*zero safety incident*).",
+    aboutBio2: "Kompetensi profesional saya diperkuat melalui pengalaman menguji 200+ sampel obat, kosmetik, dan pangan di Balai Besar POM Denpasar (HPLC & UV-Vis berstandar ISO/IEC 17025 & GMP, Predikat BAIK) serta menguji 50+ batch ekspor tuna sirip kuning dan pangan hotel/maskapai di *Bali Seafood Inspection Laboratory* (AAS & protokol HACCP). Selain itu, saya aktif mengembangkan perangkat lunak ilmiah (**DockVista PRO v2.4** & **CHEMIA v1.5**), aplikasi web *full-stack* (**KasirKu Smart POS, KostMonitor, SocialFeed**), serta *porting* game PlayStation 4 ke PC secara *native* (`github.com/krixsan`).",
+    aboutSkillsTitle: "Matriks Keahlian Profesional & Teknis (Sesuai CV)",
     
     pubTitle: "Publikasi Ilmiah & Abstrak",
-    pubSubtitle: "— Dokumentasi Karya Tulis Riset",
-    pubThesisTitle: "Penapisan Virtual Senyawa Metabolit Sekunder Daun Cengkeh terhadap Reseptor ER-α",
-    pubThesisAbstract: "Kanker payudara ER-positif dipicu oleh overekspresi reseptor estrogen. Penelitian ini menggunakan pendekatan in silico untuk menyeleksi 44 senyawa terdeteksi LC-HRMS/MS pada ekstrak etanol daun cengkeh. Melalui *molecular docking* (AutoDock Vina), ditemukan bahwa naringenin, (-)-caryophyllene oxide, dan ellagic acid memiliki afinitas pengikatan terbaik (-8.4 hingga -8.1 kcal/mol) melampaui ligan kontrol alami. Analisis visualisasi (PyMOL) mengonfirmasi interaksi stabil melalui ikatan hidrogen pada residu kunci Glu353 dan Arg394, menjadikan senyawa-senyawa ini kandidat potensial sebagai agen antikanker payudara.",
-    pubRepoLink: "Lihat Repositori & Data Lengkap",
+    pubSubtitle: "— Dokumentasi Karya Tulis Riset Skripsi (Nilai A / 4.00 • 6 SKS)",
+    pubThesisTitle: "Potensi Senyawa Ekstrak Etanol Daun Cengkeh (Syzygium aromaticum L.) sebagai Inhibitor Reseptor Estrogen Alfa (ER-α) Secara In Silico",
+    pubThesisAbstract: "Melakukan penapisan virtual (*molecular docking*) terhadap 44 senyawa fitokimia teridentifikasi LC-HRMS/MS pada ekstrak etanol 70% daun cengkeh terhadap reseptor target kanker payudara ER-alfa (PDB ID: 3ERT) menggunakan AutoDock Vina. Mengidentifikasi 3 senyawa kandidat terbaik dengan afinitas pengikatan melampaui ligan alami estradiol (-7.88 kkal/mol): **Naringenin (-8.415 kkal/mol)**, **(-)-Caryophyllene oxide (-8.161 kkal/mol)**, dan **Asam Elagat (-8.134 kkal/mol)**. Memverifikasi stabilitas interaksi ikatan hidrogen pada residu aktif kunci (Glu353 dan Arg394) menggunakan PyMOL & BIOVIA Discovery Studio, serta mengonfirmasi profil farmakokinetik dan keamanan toksisitas oral (Kelas IV–V) melalui ProTox 3.0.",
+    pubRepoLink: "Uji Langsung di Simulator Docking",
 
     simTitle: "Simulator *Molecular Docking* *In Silico*",
     simSubtitle: "— Pengujian Afinitas Ikatan Senyawa Aktif Secara *Real-Time*",
@@ -420,11 +716,12 @@ export const TRANSLATIONS = {
     contactSubtitle: "Tertarik untuk berkolaborasi dalam riset, membutuhkan analis QC/QA laboratorium, atau ingin berdiskusi mengenai visualisasi kimia 3D? Silakan hubungi saya secara langsung. Saya siap berdiskusi secara profesional!",
     contactViaEmail: "Kirim Email Langsung",
     contactViaWa: "Hubungi via WhatsApp",
-    contactLocation: "Lokasi Kerja: Bali, Indonesia / Bersedia Relokasi"
+    contactLocation: "Singakerta, Ubud, Gianyar, Bali (Siap Relokasi)"
   },
   en: {
     navHome: "Home",
     navAbout: "About",
+    navCertificates: "Certifications",
     navActivities: "Activities",
     navSimulator: "In Silico Simulator",
     navCalculator: "QC Lab Tools",
@@ -435,27 +732,27 @@ export const TRANSLATIONS = {
     heroGreeting: "Hello, meet",
     heroName: "Mank Krisna",
     heroTitle: "I Komang Bayu Kresna, S.Si.",
-    heroSubtitle: "B.Sc in Chemistry • Computational Chemistry Specialist (In Silico) & Lab QC Analyst",
-    heroBio: "Udayana University chemistry graduate dedicated to integrating precise analytical laboratory methods (HPLC, AAS) with virtual computational screening (molecular docking) to accelerate future scientific discoveries.",
+    heroSubtitle: "Quality Control (QC/QA) Analyst • Computational Chemist (*In Silico*) • Web & Software Developer (*Vibe Coding*)",
+    heroBio: "ONMIPA-PT National Chemistry Finalist 2025 & B.Sc. in Chemistry from Udayana University (GPA 3.77/4.00 — *Cum Laude*). Integrating high-precision food & pharmaceutical QC/QA lab analytics (HPLC, AAS, UV-Vis) with *in silico* molecular docking and AI-assisted software engineering (*Vibe Coding*) for web apps, scientific desktop suites, and native PS4-to-PC game ports.",
     heroBtnSim: "Start Docking Simulation",
     heroBtnContact: "Contact Me",
-    heroBtnCv: "Download CV",
+    heroBtnCv: "Preview & Download CV",
 
     skillsInSilico: "Computational & *In Silico*",
     skillsLab: "Wet Lab (QC/QA)",
-    skillsOther: "Certifications & Others",
+    skillsOther: "Certifications & Standards",
 
     aboutTitle: "Laboratory Dedication & Research",
-    aboutSubtitle: "— Bridging Wet-Lab Experiments with Computation",
-    aboutBio1: "I am a Chemistry graduate from Udayana University deeply passionate about analytical chemistry, quality control (QC), and biomolecular research. During my academic journey, I was honored to serve as a Teaching Assistant (Asdos) for Organic Chemistry II (Semester 7) and Organic Chemistry I (Semester 8) courses. Driven by academic rigor, I also qualified as a National Finalist in the prestigious National Olympiad in Mathematics and Natural Sciences (ONMIPA-PT) in Chemistry representing my university.",
-    aboutBio2: "This solid foundation is complemented by hands-on experience interning at BPOM (utilizing HPLC chromatography) and working at the Bali Seafood Inspection Laboratory (utilizing AAS spectrometry). Here, I mastered high-precision analytical instruments and regulatory compliance, while specializing in Computational Chemistry to accelerate natural product drug discovery!",
-    aboutSkillsTitle: "Professional & Technical Skills",
+    aboutSubtitle: "— Bridging Wet-Lab Experiments, Computation & Software Engineering",
+    aboutBio1: "I am a 2025 National Finalist in the ONMIPA-PT Chemistry Olympiad and a Bachelor of Science in Chemistry (S.Si.) graduate from Udayana University with *Cum Laude* honors (GPA 3.77 / 4.00, 146 credits completed in 8 semesters). Throughout my degree, I achieved straight A (4.00) grades across all core analytical and food chemistry courses, and served as Teaching Assistant for Organic Chemistry Laboratories I & II supervising 100+ undergraduates with zero safety incidents.",
+    aboutBio2: "My laboratory career includes testing 200+ pharmaceutical, cosmetic, and food samples at BPOM Denpasar (HPLC & UV-Vis under ISO/IEC 17025 & GMP, GOOD Predicate) and analyzing heavy metals & histamine across 50+ yellowfin tuna export and hospitality batches at the *Bali Seafood Inspection Laboratory* (AAS & HACCP). Beyond the lab, I build scientific desktop software (**DockVista PRO v2.4** & **CHEMIA v1.5**), full-stack web applications (**KasirKu Smart POS, KostMonitor, SocialFeed**), and native PlayStation 4 to PC game ports (`github.com/krixsan`).",
+    aboutSkillsTitle: "Professional & Technical Skills Matrix (CV Verified)",
 
     pubTitle: "Scientific Publications & Abstracts",
-    pubSubtitle: "— Documented Research Papers",
-    pubThesisTitle: "Virtual Screening of Clove Leaf Secondary Metabolites against ER-α Receptor",
-    pubThesisAbstract: "ER-positive breast cancer is driven by the overexpression of estrogen receptors. This study utilizes an in silico approach to screen 44 compounds detected via LC-HRMS/MS in clove leaf ethanol extract. Through molecular docking (AutoDock Vina), it was discovered that naringenin, (-)-caryophyllene oxide, and ellagic acid exhibited the highest binding affinities (-8.4 to -8.1 kcal/mol), surpassing the natural control ligand. Visualization analysis (PyMOL) confirmed stable interactions via hydrogen bonding at key residues Glu353 and Arg394, establishing these compounds as potent candidates for breast cancer therapeutic agents.",
-    pubRepoLink: "View Full Repository & Data",
+    pubSubtitle: "— Undergraduate Thesis Research (Grade A / 4.00 • 6 Credits)",
+    pubThesisTitle: "In Silico Potential of Clove Leaf Ethanol Extract (Syzygium aromaticum L.) Compounds as Estrogen Receptor Alpha (ER-α) Inhibitors",
+    pubThesisAbstract: "Conducted virtual screening (*molecular docking*) of 44 LC-HRMS/MS-identified phytochemicals from 70% ethanol extract of clove leaves against breast cancer target receptor ER-alpha (PDB ID: 3ERT) using AutoDock Vina. Identified 3 top lead candidates surpassing the native estradiol ligand (-7.88 kcal/mol): **Naringenin (-8.415 kcal/mol)**, **(-)-Caryophyllene oxide (-8.161 kcal/mol)**, and **Ellagic acid (-8.134 kcal/mol)**. Verified hydrogen-bond stability at key active residues (Glu353 and Arg394) via PyMOL & BIOVIA Discovery Studio, and confirmed oral toxicity safety (Class IV–V) via ProTox 3.0.",
+    pubRepoLink: "Test Live in Docking Simulator",
 
     simTitle: "In Silico Molecular Docking Simulator",
     simSubtitle: "— Real-Time Compound Affinity Screening",
@@ -517,6 +814,6 @@ export const TRANSLATIONS = {
     contactSubtitle: "Open to academic research collaborations, professional lab analyst vacancies (QC/QA), and 3D molecular visualization projects.",
     contactViaEmail: "Send Direct Email",
     contactViaWa: "Contact on WhatsApp",
-    contactLocation: "Base Location: Bali, Indonesia / Open to Relocation"
+    contactLocation: "Singakerta, Ubud, Gianyar, Bali / Open to Relocation"
   }
 };

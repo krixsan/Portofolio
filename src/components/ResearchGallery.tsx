@@ -5,6 +5,13 @@ import { ZoomIn, X, Info, Beaker, BarChart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import CloveCaseStudy from "./CloveCaseStudy";
 import { formatText } from "../utils/textFormatter";
+import {
+  CollaboratorCursor,
+  CanvasCommentBubble,
+  FloatingSquircleBadge,
+  FigmaSelectionTitle,
+  GridLitSquares
+} from "./CanvasDecorations";
 
 interface ResearchGalleryProps {
   lang: Language;
@@ -25,21 +32,55 @@ export default function ResearchGallery({ lang }: ResearchGalleryProps) {
   const [showCloveStudy, setShowCloveStudy] = useState(false);
 
   return (
-    <section id="dokumentasi" className="py-24 md:py-32 border-t border-line scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-10">
+    <section id="dokumentasi" className="relative py-24 md:py-32 border-b border-line onlines-grid scroll-mt-20 overflow-hidden">
+      <GridLitSquares
+        cells={[
+          { top: "60px", right: "180px", count: "l-shape" },
+          { bottom: "60px", left: "120px", count: "pair" }
+        ]}
+      />
+      <FloatingSquircleBadge className="hidden xl:flex absolute top-16 left-12 text-[#00C471]" rotate={-6} delay={0.2}>
+        HPLC
+      </FloatingSquircleBadge>
+      <FloatingSquircleBadge className="hidden xl:flex absolute bottom-16 right-14 text-[#FF5722]" rotate={7} delay={0.4}>
+        AAS
+      </FloatingSquircleBadge>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div className="max-w-2xl">
-            <p className="font-mono text-xs tracking-[0.2em] uppercase text-accent mb-4">
-              {formatText(t.gallerySubtitle)}
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl gradient-text">
-              {t.galleryTitle}
-            </h2>
+          <div className="max-w-2xl space-y-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="font-mono text-xs tracking-[0.2em] uppercase text-ink-soft">
+                {formatText(t.gallerySubtitle)}
+              </p>
+              <CollaboratorCursor
+                label="Lab Logbook & 3D Renders"
+                color="#00C471"
+                delay={0.2}
+              />
+            </div>
+            <FigmaSelectionTitle badge="SECTION 06 • DOCUMENTATION">
+              <h2 className="font-serif text-4xl md:text-5xl gradient-text">
+                {t.galleryTitle}
+              </h2>
+            </FigmaSelectionTitle>
           </div>
-          <p className="max-w-xs text-sm text-ink-soft leading-relaxed text-justify">
-            {t.galleryIntro}
-          </p>
+          <div className="flex flex-col items-start md:items-end gap-3">
+            <CanvasCommentBubble
+              author="Riset Skripsi"
+              time="interaktif"
+              text={
+                lang === "id"
+                  ? "Klik kartu pertama untuk membuka studi kasus daun cengkeh."
+                  : "Click the first card to open the interactive clove study."
+              }
+              className="hidden sm:flex"
+            />
+            <p className="max-w-xs text-xs md:text-sm text-ink-soft leading-relaxed text-justify">
+              {t.galleryIntro}
+            </p>
+          </div>
         </div>
 
         {/* Bento Grid */}

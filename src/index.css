@@ -1,47 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 :root {
-  /* Backgrounds */
-  --paper: #F8F9FA;
-  --paper-soft: #FFFFFF;
-  --paper-glass: rgba(255, 255, 255, 0.7);
+  /* Onlines / Minimal Gallery Palette — Light */
+  --paper: #FFFFFF;
+  --paper-soft: #F7F7F8;
+  --paper-glass: rgba(255, 255, 255, 0.88);
   
   /* Text */
-  --ink: #1A1A2E;
-  --ink-soft: #6C757D;
+  --ink: #121213;
+  --ink-soft: #5A5A64;
   
-  /* Borders */
-  --line: #E9ECEF;
-  --line-hover: #DEE2E6;
+  /* Borders & Grid */
+  --line: #E6E6EA;
+  --line-hover: #C8C8D0;
+  --grid-line: rgba(18, 18, 19, 0.08);
+  --grid-lit: rgba(18, 18, 19, 0.03);
+  --selection-border: rgba(18, 18, 19, 0.22);
   
-  /* Accent - Teal Gradient */
-  --accent: #2D5A4E;
-  --accent-soft: #4ECDC4;
-  --accent-gradient: linear-gradient(135deg, #2D5A4E 0%, #4ECDC4 100%);
+  /* Accent - Crisp Editorial Ink + Studio Blue */
+  --accent: #121213;
+  --accent-soft: #0066FF;
+  --accent-gradient: linear-gradient(135deg, #121213 0%, #323238 100%);
   
+  /* Collaborator / Cursor Palette (Onlines Figma Tags) */
+  --cursor-green: #00C471;
+  --cursor-blue: #007AFF;
+  --cursor-cyan: #00B8D9;
+  --cursor-orange: #FF5722;
+  --cursor-violet: #7C3AED;
+  --cursor-pink: #EC4899;
+
   /* Highlights */
-  --coral: #FF6B6B;
-  --coral-soft: #FF8E8E;
+  --coral: #FF5722;
+  --coral-soft: #FF8A65;
   
   /* On Accent */
   --on-accent: #FFFFFF;
 }
 
 .dark {
-  --paper: #0D1117;
-  --paper-soft: #161B22;
-  --paper-glass: rgba(22, 27, 34, 0.8);
-  --ink: #F0F6FC;
-  --ink-soft: #8B949E;
-  --line: #30363D;
-  --line-hover: #484F58;
-  --accent: #4ECDC4;
-  --accent-soft: #7EE8E0;
-  --coral: #FF8E8E;
-  --coral-soft: #FFB4B4;
-  --on-accent: #0D1117;
+  --paper: #050506;
+  --paper-soft: #101013;
+  --paper-glass: rgba(16, 16, 19, 0.86);
+  --ink: #F5F5F7;
+  --ink-soft: #8E8E98;
+  --line: #232329;
+  --line-hover: #383842;
+  --grid-line: rgba(255, 255, 255, 0.07);
+  --grid-lit: rgba(255, 255, 255, 0.04);
+  --selection-border: rgba(255, 255, 255, 0.24);
+  --accent: #FFFFFF;
+  --accent-soft: #38BDF8;
+  --accent-gradient: linear-gradient(135deg, #FFFFFF 0%, #B8B8C4 100%);
+  --coral: #FF7043;
+  --coral-soft: #FFAB91;
+  --on-accent: #050506;
 }
 
 @theme {
@@ -58,37 +73,93 @@
   --color-coral-soft: var(--coral-soft);
   --color-on-accent: var(--on-accent);
 
-  --font-sans: "Instrument Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", "Georgia", serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", "Fira Code", ui-monospace, monospace;
+  --font-sans: "Inter", "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 /* Global resets and scrolling behaviors */
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   background-color: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+  letter-spacing: -0.015em;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Make headings tight and architectural like Onlines Inter Display */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-sans);
+  letter-spacing: -0.035em;
+}
+
+/* Onlines Signature 60px Dotted/Dashed Architectural Grid */
+.onlines-grid {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+.onlines-dashed-divider {
+  border-color: var(--line);
+  border-style: dashed;
+}
+
+/* Figma Selection Bounding Box & Handles (from Onlines Hero) */
+.figma-selection-box {
+  position: relative;
+  border: 1px dashed var(--selection-border);
+}
+
+.figma-handle {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--paper);
+  border: 1px solid var(--selection-border);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.figma-handle--tl { top: -5px; left: -5px; }
+.figma-handle--tc { top: -5px; left: 50%; transform: translateX(-50%); }
+.figma-handle--tr { top: -5px; right: -5px; }
+.figma-handle--bl { bottom: -5px; left: -5px; }
+.figma-handle--bc { bottom: -5px; left: 50%; transform: translateX(-50%); }
+.figma-handle--br { bottom: -5px; right: -5px; }
+
+/* Onlines Floating Pill / App Card Surface */
+.onlines-floating-card {
+  background: var(--paper-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.dark .onlines-floating-card {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Glassmorphism Card */
 .glass-card {
   background: var(--paper-glass);
-  backdrop-blur: 12px;
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--line);
 }
 
-/* Gradient Text */
+/* High-Contrast Display Heading (replaces old teal gradient) */
 .gradient-text {
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 /* Gradient Border on Hover */
@@ -101,32 +172,33 @@ body {
 .gradient-border::before {
   content: '';
   position: absolute;
-  inset: -2px;
-  background: var(--accent-gradient);
+  inset: -1px;
+  background: var(--ink);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
 .gradient-border:hover::before {
-  opacity: 1;
+  opacity: 0.15;
 }
 
-/* Button Primary with Gradient */
+/* Button Primary — Solid Pill like Onlines "Hablemos" */
 .btn-primary {
-  background: var(--accent-gradient);
-  color: var(--on-accent);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--ink);
+  color: var(--paper);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(45, 90, 78, 0.3);
+  opacity: 0.9;
+  box-shadow: 0 10px 24px rgba(18, 18, 19, 0.18);
 }
 
 .dark .btn-primary:hover {
-  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.14);
 }
 
 /* Card Hover Effect */
@@ -135,55 +207,42 @@ body {
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  border-color: var(--line-hover);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
 }
 
-/* Glow Effect */
+/* Subtle Studio Glow */
 .glow {
-  box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .glow:hover {
-  box-shadow: 0 0 30px rgba(78, 205, 196, 0.5);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
 /* Floating Animation */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
 }
 
-/* Scroll Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+/* Blinking typing cursor */
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Shimmer Loading Effect */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer {
-  background: linear-gradient(90deg, var(--paper-soft) 25%, var(--line) 50%, var(--paper-soft) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+.animate-blink {
+  animation: blinkCursor 0.85s step-end infinite;
 }
 
 /* Tailored fade-in animation */
@@ -202,32 +261,6 @@ body {
   animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Slide Up Animation */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Pulse Glow Animation */
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 20px rgba(78, 205, 196, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(78, 205, 196, 0.6); }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
@@ -239,22 +272,22 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--line);
+  background: var(--line-hover);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-soft);
+  background: var(--ink-soft);
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(78, 205, 196, 0.3);
+  background: rgba(0, 122, 255, 0.18);
   color: var(--ink);
 }
 
 /* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-soft);
   outline-offset: 2px;
 }

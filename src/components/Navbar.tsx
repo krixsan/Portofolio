@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Language } from "../types";
 import { TRANSLATIONS } from "../data";
-import { Sun, Moon, Menu, X, Globe } from "lucide-react";
+import { Sun, Moon, Menu, X, Globe, ArrowUpRight } from "lucide-react";
 
 interface NavbarProps {
   lang: Language;
@@ -18,12 +18,22 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
   const t = TRANSLATIONS[lang];
 
   useEffect(() => {
-    const sectionIds = ['beranda', 'tentang', 'aktivitas', 'simulator', 'kalkulator', 'dokumentasi', 'guestbook', 'kontak'];
-    
+    const sectionIds = [
+      "beranda",
+      "tentang",
+      "vibe-coding",
+      "sertifikasi",
+      "aktivitas",
+      "simulator",
+      "kalkulator",
+      "dokumentasi",
+      "guestbook",
+      "kontak"
+    ];
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      
-      // Calculate scroll progress
+
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
@@ -40,14 +50,14 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
           }
         }
       }
-      
+
       if (current) {
         setActiveSection(current);
       } else if (window.scrollY < 100) {
         setActiveSection("beranda");
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
@@ -66,12 +76,13 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
   const navItems = [
     { href: "#beranda", label: t.navHome },
     { href: "#tentang", label: t.navAbout },
+    { href: "#vibe-coding", label: lang === "id" ? "Proyek & CV" : "Projects & CV" },
+    { href: "#sertifikasi", label: (t as any).navCertificates },
     { href: "#aktivitas", label: t.navActivities },
-    { href: "#simulator", label: t.navSimulator },
+    { href: "#simulator", label: t.navSimulator.replace(/\*/g, "") },
     { href: "#kalkulator", label: t.navCalculator },
     { href: "#dokumentasi", label: t.navGallery },
     { href: "#guestbook", label: t.navGuestbook },
-    { href: "#kontak", label: t.navContact },
   ];
 
   return (
@@ -79,48 +90,54 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
       id="site-nav"
       className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "glass-card shadow-sm py-3"
-          : "bg-transparent border-transparent py-5"
+          ? "bg-paper/90 backdrop-blur-md border-b border-line py-3.5"
+          : "bg-paper/70 backdrop-blur-sm py-5"
       }`}
     >
-      {/* Scroll Progress Bar */}
-      <div className="absolute bottom-0 left-0 h-[2px] bg-accent-soft transition-all duration-150" style={{ width: `${scrollProgress}%` }} />
-      
-      <div className="max-w-6xl mx-auto px-6 md:px-10 flex items-center justify-between">
-        {/* Logo with Gradient */}
+      {/* Subtle Top Scroll Progress */}
+      <div
+        className="absolute bottom-0 left-0 h-[1.5px] bg-ink transition-all duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
+        {/* Onlines-style Bold Lowercase Wordmark */}
         <a
           href="#beranda"
-          className="font-serif italic text-2xl md:text-3xl tracking-tight font-medium hover:opacity-80 transition-opacity gradient-text"
+          className="flex items-center gap-2.5 text-xl md:text-2xl font-extrabold tracking-[-0.05em] text-ink hover:opacity-75 transition-opacity shrink-0"
         >
-          Mank Krisna
+          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-ink text-paper font-mono text-[10px] font-bold">
+            •_
+          </span>
+          <span>mankkrisna</span>
         </a>
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 font-mono text-[11px] tracking-[0.12em] uppercase text-ink-soft">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className={`transition-colors duration-200 relative group py-1 ${
-                activeSection === item.href.substring(1) 
-                  ? "text-accent font-bold" 
-                  : "hover:text-accent"
-              }`}
-            >
-              {item.label}
-              <span className={`absolute bottom-0 left-0 h-[2px] bg-accent-gradient transition-all duration-300 ${
-                activeSection === item.href.substring(1) ? "w-full" : "w-0 group-hover:w-full"
-              }`} />
-            </a>
-          ))}
+        {/* Minimal Desktop Navigation */}
+        <nav className="hidden xl:flex items-center gap-1 bg-paper-soft/80 border border-line rounded-full px-2 py-1 text-[12px] font-medium text-ink-soft">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "bg-ink text-paper font-semibold shadow-xs"
+                    : "hover:text-ink"
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-3">
+        {/* Right Controls + Solid Pill CTA ("Hablemos" / "Hubungi Saya") */}
+        <div className="flex items-center gap-2.5">
           {/* Language Switcher */}
           <button
             onClick={() => setLang(lang === "id" ? "en" : "id")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line text-ink-soft hover:border-accent hover:text-accent transition-all font-mono text-[10px] tracking-wider uppercase glass-card"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line text-ink-soft hover:border-ink hover:text-ink transition-all font-mono text-[11px] font-semibold bg-paper cursor-pointer"
             title={lang === "id" ? "Switch to English" : "Ubah ke Bahasa Indonesia"}
           >
             <Globe size={12} />
@@ -130,16 +147,25 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
           {/* Dark / Light Toggle */}
           <button
             onClick={toggleDarkMode}
-            className="w-9 h-9 flex items-center justify-center rounded-full border border-line text-ink hover:border-accent hover:text-accent transition-all duration-300 glass-card cursor-pointer"
+            className="w-9 h-9 flex items-center justify-center rounded-full border border-line text-ink hover:border-ink transition-all duration-300 bg-paper cursor-pointer"
             aria-label="Toggle theme"
           >
             {darkMode ? <Sun size={15} /> : <Moon size={15} />}
           </button>
 
+          {/* Solid Pill CTA Button (Onlines "Hablemos" style) */}
+          <a
+            href="#kontak"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-ink text-paper text-xs font-semibold px-5 py-2.5 rounded-full hover:opacity-85 transition-all shadow-xs"
+          >
+            <span>{lang === "id" ? "Mari Diskusi" : "Let's Talk"}</span>
+            <ArrowUpRight size={14} />
+          </a>
+
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-9 h-9 flex items-center justify-center rounded-full border border-line text-ink glass-card cursor-pointer"
+            className="xl:hidden w-9 h-9 flex items-center justify-center rounded-full border border-line text-ink bg-paper cursor-pointer"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
@@ -149,22 +175,30 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode }: NavbarP
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-line glass-card animate-fade-in absolute top-[100%] inset-x-0 shadow-lg">
-          <nav className="flex flex-col px-6 py-4 gap-1 font-mono text-xs tracking-wider uppercase text-ink-soft">
+        <div className="xl:hidden border-t border-line bg-paper/95 backdrop-blur-xl animate-fade-in absolute top-full inset-x-0 shadow-xl">
+          <nav className="flex flex-col px-6 py-5 gap-2 text-sm font-semibold text-ink-soft">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-xl font-serif italic block transition-colors ${
-                  activeSection === item.href.substring(1) 
-                    ? "text-accent font-bold" 
-                    : "text-ink hover:text-accent"
+                className={`py-2 px-3 rounded-xl transition-colors ${
+                  activeSection === item.href.substring(1)
+                    ? "bg-ink text-paper font-bold"
+                    : "text-ink hover:bg-paper-soft"
                 }`}
               >
                 {item.label}
               </a>
             ))}
+            <a
+              href="#kontak"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 py-3 px-4 rounded-full bg-ink text-paper text-center font-bold flex items-center justify-center gap-1.5"
+            >
+              <span>{lang === "id" ? "Mari Diskusi" : "Let's Talk"}</span>
+              <ArrowUpRight size={15} />
+            </a>
           </nav>
         </div>
       )}

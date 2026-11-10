@@ -95,16 +95,15 @@ export default function AiAssistant({ lang }: AiAssistantProps) {
 
   return (
     <>
-      {/* Floating Chat Trigger Button with Glow */}
+      {/* Floating Chat Trigger Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-accent text-on-accent hover:bg-accent-soft transition-colors"
-        style={{ background: 'linear-gradient(135deg, #2D5A4E 0%, #4ECDC4 100%)' }}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-lg cursor-pointer bg-ink text-paper hover:opacity-90 transition-all"
         title="Open Mank Krisna AI Assistant"
       >
-        <MessageSquare size={24} className="text-white" />
+        <MessageSquare size={22} />
       </motion.button>
 
       {/* Expanded Chat Dialog */}
@@ -116,36 +115,36 @@ export default function AiAssistant({ lang }: AiAssistantProps) {
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[550px] glass-card rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-line"
           >
-            {/* Header with Gradient */}
-            <div className="px-5 py-4 flex items-center justify-between" style={{ background: 'linear-gradient(135deg, #2D5A4E 0%, #4ECDC4 100%)' }}>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+            {/* Header */}
+            <div className="px-5 py-4 flex items-center justify-between bg-ink text-paper">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2 h-2 rounded-full bg-[#00C471] animate-pulse" />
                 <div>
-                  <h3 className="font-serif italic text-base text-white font-bold flex items-center gap-1.5">
-                    <Sparkles size={14} />
+                  <h3 className="font-sans text-sm font-bold flex items-center gap-1.5">
+                    <Sparkles size={13} />
                     <span>Lab Virtual AI</span>
                   </h3>
-                  <p className="text-[9px] font-mono uppercase tracking-wider text-white/80">
+                  <p className="text-[9px] font-mono uppercase tracking-wider opacity-70">
                     Mank Krisna Virtual Clone
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white hover:opacity-80 cursor-pointer"
+                className="hover:opacity-75 cursor-pointer"
               >
                 <X size={16} />
               </button>
             </div>
 
             {/* Sub-header info */}
-            <div className="bg-accent/5 px-4 py-2 border-b border-line/50 flex items-center gap-2 text-[10px] text-accent font-mono">
-              <Info size={12} className="shrink-0" />
+            <div className="bg-paper-soft px-4 py-2 border-b border-line flex items-center gap-2 text-[10px] text-ink-soft font-mono">
+              <Info size={12} className="shrink-0 text-[#007AFF]" />
               <span>Grounded in Mank Krisna's official chemistry portfolio.</span>
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-paper-soft/30">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-paper">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
@@ -154,10 +153,9 @@ export default function AiAssistant({ lang }: AiAssistantProps) {
                   <div
                     className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-xs leading-relaxed ${
                       msg.role === "user"
-                        ? "text-on-accent"
+                        ? "bg-ink text-paper"
                         : "glass-card text-ink border border-line"
                     }`}
-                    style={msg.role === "user" ? { background: 'linear-gradient(135deg, #2D5A4E 0%, #4ECDC4 100%)' } : {}}
                   >
                     <p className="whitespace-pre-line text-justify">{msg.parts[0].text}</p>
                   </div>
@@ -227,10 +225,9 @@ export default function AiAssistant({ lang }: AiAssistantProps) {
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="p-2 rounded-xl flex items-center justify-center cursor-pointer disabled:opacity-40 text-on-accent transition-colors"
-                style={{ background: 'linear-gradient(135deg, #2D5A4E 0%, #4ECDC4 100%)' }}
+                className="p-2 rounded-xl flex items-center justify-center cursor-pointer disabled:opacity-40 bg-ink text-paper transition-colors"
               >
-                <Send size={15} className="text-white" />
+                <Send size={15} />
               </button>
             </form>
           </motion.div>
